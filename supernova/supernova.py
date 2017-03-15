@@ -36,6 +36,9 @@ def execute_executable(nova_args, env_vars):
     Hey, I know this method has a silly name, but I write the code here and
     I'm silly.
     """
+    if nova_args[0] == "glance":
+        nova_args.insert(1, "--insecure")
+        
     process = subprocess.Popen(nova_args,
                                stdout=sys.stdout,
                                stderr=subprocess.PIPE,
